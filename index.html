@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carl.Tecnologia | Serviços Future-Tech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --bg-dark: #050505;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e0e0e0;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-cyber { font-family: 'Orbitron', sans-serif; }
+
+        .neon-border {
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue), inset 0 0 5px var(--neon-blue);
+        }
+
+        .neon-text-blue { text-shadow: 0 0 10px var(--neon-blue); color: var(--neon-blue); }
+        .neon-text-pink { text-shadow: 0 0 10px var(--neon-pink); color: var(--neon-pink); }
+
+        .glass-morphism {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .robot-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 243, 255, 0.1);
+            position: absolute;
+            animation: scan 4s linear infinite;
+            z-index: 10;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .btn-purchase {
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-purchase:hover {
+            box-shadow: 0 0 20px var(--neon-blue);
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="scanline"></div>
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 glass-morphism border-b border-blue-900/50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-robot neon-text-blue text-2xl"></i>
+                <span class="text-2xl font-bold font-cyber tracking-tighter">Carl.<span class="neon-text-blue">Tecnologia</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium uppercase tracking-widest text-sm">
+                <a href="#inicio" class="hover:neon-text-blue transition">Início</a>
+                <a href="#servicos" class="hover:neon-text-blue transition">Serviços</a>
+                <a href="#avaliacoes" class="hover:neon-text-blue transition">Avaliações</a>
+                <a href="#sobre" class="hover:neon-text-blue transition">Sobre Nós</a>
+            </div>
+            <button onclick="window.open('https://wa.me/5584991545678')" class="bg-blue-600/20 border border-blue-500 text-blue-400 px-4 py-1 rounded hover:bg-blue-500 hover:text-white transition">
+                <i class="fab fa-whatsapp"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-40 pb-20 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-blue-500 font-cyber mb-2 tracking-widest uppercase">System Online _</h2>
+                <h1 class="text-5xl md:text-7xl font-bold font-cyber mb-6 leading-tight">
+                    Futuro dos <br><span class="neon-text-pink">Serviços Digitais</span>
+                </h1>
+                <p class="text-gray-400 text-lg mb-8 max-w-lg">
+                    Construindo identidades visuais e infraestrutura web com precisão robótica. Transformamos sua marca em um ícone tecnológico.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#servicos" class="neon-border px-8 py-3 font-cyber text-sm hover:bg-blue-500/10 transition">Explorar Unidades</a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="absolute w-72 h-72 bg-blue-600/20 rounded-full blur-3xl"></div>
+                <!-- Mockup de robô fictício usando SVG -->
+                <svg class="robot-float w-80 h-80" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="60" y="60" width="80" height="80" rx="10" stroke="#00f3ff" stroke-width="2" />
+                    <circle cx="85" cy="90" r="5" fill="#00f3ff" />
+                    <circle cx="115" cy="90" r="5" fill="#00f3ff" />
+                    <path d="M85 115H115" stroke="#00f3ff" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M100 20V60" stroke="#ff00ff" stroke-width="2" stroke-dasharray="4 4"/>
+                    <circle cx="100" cy="20" r="5" fill="#ff00ff" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços (Estilo Portevoz) -->
+    <section id="servicos" class="py-20 bg-black/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-cyber mb-4">Portevoz <span class="neon-text-blue">Serviços</span></h2>
+                <div class="h-1 w-20 bg-blue-600 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Site -->
+                <div class="glass-morphism p-8 rounded-3xl border-l-4 border-blue-500 hover:border-blue-400 transition-all group">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-code text-4xl neon-text-blue"></i>
+                        <span class="text-2xl font-cyber text-white">R$ 200,00</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Criação de Sites</h3>
+                    <p class="text-gray-400 mb-6">Desenvolvimento de Landing Pages e sites institucionais com arquitetura limpa e alta performance.</p>
+                    <button onclick="openCheckout('Criação de Site', 200)" class="w-full btn-purchase py-4 rounded-xl font-cyber uppercase tracking-tighter text-sm">Contratar Interface</button>
+                </div>
+
+                <!-- Logo -->
+                <div class="glass-morphism p-8 rounded-3xl border-l-4 border-pink-500 hover:border-pink-400 transition-all group">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-bezier-curve text-4xl neon-text-pink"></i>
+                        <span class="text-2xl font-cyber text-white">R$ 5,50</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Identidade Visual (Logo)</h3>
+                    <p class="text-gray-400 mb-6">Logotipos vetoriais exclusivos que capturam a essência da sua marca em segundos.</p>
+                    <button onclick="openCheckout('Identidade Visual', 5.50)" class="w-full btn-purchase py-4 rounded-xl font-cyber uppercase tracking-tighter text-sm">Gerar Identidade</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-cyber mb-8">Sobre a <span class="neon-text-blue">Carl.Tecnologia</span></h2>
+            <div class="glass-morphism p-10 rounded-2xl text-gray-300 leading-relaxed text-lg border border-blue-900/30">
+                Somos uma unidade de processamento criativo focada em fornecer soluções rápidas e impactantes. 
+                Comandada por <strong>Carlos Frederico Diogenes Mariz</strong>, a Carl.Tecnologia une a eficiência dos robôs com a sensibilidade do design humano. 
+                Nosso compromisso é a entrega imediata e a satisfação total do usuário final.
+            </div>
+        </div>
+    </section>
+
+    <!-- Avaliações -->
+    <section id="avaliacoes" class="py-20 bg-blue-900/10">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-cyber mb-10 text-center">Protocolo de <span class="neon-text-pink">Satisfação</span></h2>
+            
+            <!-- Lista de Comentários -->
+            <div id="reviews-container" class="space-y-4 mb-8 h-64 overflow-y-auto pr-4">
+                <div class="glass-morphism p-4 rounded-lg border-l-2 border-blue-500">
+                    <p class="text-blue-400 text-sm mb-1 font-bold">User_99: <span class="text-gray-500 font-normal">agora mesmo</span></p>
+                    <p>"Serviço impecável! O site ficou muito rápido."</p>
+                </div>
+                <div class="glass-morphism p-4 rounded-lg border-l-2 border-pink-500">
+                    <p class="text-pink-400 text-sm mb-1 font-bold">Design_Lover: <span class="text-gray-500 font-normal">há 2 horas</span></p>
+                    <p>"A logo de 5,50 superou minhas expectativas. Recomendo!"</p>
+                </div>
+            </div>
+
+            <!-- Input de Comentário -->
+            <div class="relative">
+                <input type="text" id="review-input" placeholder="Digite sua avaliação e aperte ENTER..." 
+                    class="w-full bg-black border border-blue-900 rounded-full px-6 py-4 focus:outline-none focus:border-blue-400 transition text-white">
+                <i class="fas fa-terminal absolute right-6 top-5 text-blue-900"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-blue-900/30 text-center">
+        <p class="text-gray-500 font-cyber text-xs tracking-widest">
+            © 2024 CARL.TECNOLOGIA | TITULAR: CARLOS FREDERICO DIOGENES MARIZ | ALL SYSTEMS OPERATIONAL
+        </p>
+    </footer>
+
+    <!-- MODAL DE CHECKOUT -->
+    <div id="checkout-modal" class="modal">
+        <div class="glass-morphism p-8 rounded-3xl w-full max-w-md border border-blue-500 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white text-xl">&times;</button>
+            <h3 class="text-2xl font-cyber mb-6 neon-text-blue" id="modal-title">Finalizar Compra</h3>
+            
+            <div class="space-y-4 mb-8">
+                <div class="p-4 bg-blue-950/40 rounded-lg border border-blue-900">
+                    <p class="text-xs text-blue-400 uppercase font-bold mb-2">Forma de Pagamento: PIX</p>
+                    <p class="text-sm break-all font-mono text-gray-300 bg-black p-3 rounded mb-2">00020101021126580014br.gov.bcb.pix01363ab4cbc2-39b2-48ed-9134-bb21218a70aa5204000053039865802BR5916CARLOS F D MARIZ6005NATAL62070503***6304B8FB</p>
+                    <button onclick="copyPix()" class="w-full text-xs text-blue-400 hover:underline">Copiar Código PIX</button>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-900 rounded-lg border border-gray-800">
+                        <p class="text-[10px] text-gray-500 uppercase">Titular</p>
+                        <p class="text-xs font-bold">Carlos F. D. Mariz</p>
+                    </div>
+                    <div class="p-4 bg-gray-900 rounded-lg border border-gray-800">
+                        <p class="text-[10px] text-gray-500 uppercase">CPF</p>
+                        <p class="text-xs font-bold">122.484.544-73</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <button onclick="confirmPayment()" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold hover:bg-green-500 transition shadow-lg shadow-green-900/20">
+                    CONFIRMAR PAGAMENTO
+                </button>
+                <p class="text-[10px] text-center text-gray-500 uppercase">A entrega será iniciada após a confirmação do titular.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Flutuante -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-50">
+        <div id="chat-window" class="hidden mb-4 glass-morphism w-72 h-96 rounded-2xl border border-blue-500 flex flex-col overflow-hidden">
+            <div class="bg-blue-600 p-4 font-cyber text-xs">Suporte Carl.Tec</div>
+            <div id="chat-content" class="flex-1 p-4 text-sm overflow-y-auto space-y-2">
+                <div class="bg-blue-900/30 p-2 rounded">Olá! Como posso ajudar com seu site ou logo hoje?</div>
+            </div>
+            <div class="p-2 bg-black">
+                <input type="text" id="chat-input" placeholder="Mensagem..." class="w-full bg-gray-900 border-none rounded p-2 text-xs focus:ring-1 ring-blue-500">
+            </div>
+        </div>
+        <button onclick="toggleChat()" class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition">
+            <i class="fas fa-comments text-white"></i>
+        </button>
+    </div>
+
+    <script>
+        // Sistema de Modal
+        function openCheckout(item, preco) {
+            document.getElementById('modal-title').innerText = `Pagar ${item}: R$ ${preco.toFixed(2)}`;
+            document.getElementById('checkout-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('checkout-modal').style.display = 'none';
+        }
+
+        function copyPix() {
+            const pix = "00020101021126580014br.gov.bcb.pix01363ab4cbc2-39b2-48ed-9134-bb21218a70aa5204000053039865802BR5916CARLOS F D MARIZ6005NATAL62070503***6304B8FB";
+            const el = document.createElement('textarea');
+            el.value = pix;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            showNotification("Código PIX copiado!");
+        }
+
+        function confirmPayment() {
+            showNotification("Aguardando confirmação do Titular (Carlos)...");
+            setTimeout(() => {
+                window.open('https://wa.me/5584991545678?text=Olá Carlos, acabei de realizar o pagamento do serviço. Aguardo início!');
+                closeModal();
+            }, 2000);
+        }
+
+        // Sistema de Avaliações (Enter)
+        const reviewInput = document.getElementById('review-input');
+        reviewInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter' && this.value.trim() !== "") {
+                const container = document.getElementById('reviews-container');
+                const newReview = document.createElement('div');
+                newReview.className = "glass-morphism p-4 rounded-lg border-l-2 border-green-500 animate-pulse";
+                newReview.innerHTML = `
+                    <p class="text-green-400 text-sm mb-1 font-bold">Visitante: <span class="text-gray-500 font-normal">agora mesmo</span></p>
+                    <p>"${this.value}"</p>
+                `;
+                container.prepend(newReview);
+                this.value = "";
+                container.scrollTop = 0;
+            }
+        });
+
+        // Chat Toggle
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.classList.toggle('hidden');
+        }
+
+        const chatInput = document.getElementById('chat-input');
+        chatInput.addEventListener('keypress', function(e) {
+            if(e.key === 'Enter' && this.value.trim() !== "") {
+                const content = document.getElementById('chat-content');
+                content.innerHTML += `<div class="bg-gray-800 p-2 rounded text-right">${this.value}</div>`;
+                this.value = "";
+                setTimeout(() => {
+                    content.innerHTML += `<div class="bg-blue-900/30 p-2 rounded">Entendido. Carlos entrará em contato em breve via WhatsApp para detalhes técnicos.</div>`;
+                    content.scrollTop = content.scrollHeight;
+                }, 1000);
+            }
+        });
+
+        // Notificação customizada
+        function showNotification(msg) {
+            const toast = document.createElement('div');
+            toast.className = "fixed top-24 right-6 bg-blue-600 text-white px-6 py-3 rounded shadow-2xl z-[2000] font-cyber text-xs border border-blue-400";
+            toast.innerText = msg;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Fechar modal ao clicar fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('checkout-modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
+
